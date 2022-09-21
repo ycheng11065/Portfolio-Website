@@ -1,0 +1,273 @@
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;  /* change padding calculation  **/
+}
+
+
+/* Custom properties */
+
+:root {  /* Select the <html> element **/
+
+    --ff-primary: 'Source Sans Pro', sans-serif;   /* Font family **/
+    --ff-secondary: 'Source Code Pro', monospace;
+
+    --fw-reg: 300;  /* font weight **/
+    --fw-bold: 900;
+
+    --clr-light: #fff;   /* Colour **/
+    --clr-dark: #303030;
+    --clr-accent: #16e0bd;
+
+    --fs-h1: 3rem;  /*Font size **/
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+
+}
+
+
+@media (min-width: 800px) {  /* If window is min 800px **/
+     :root {
+        --fs-h1: 4.5rem;
+        --fs-h2: 3.75rem;
+        --fs-h3: 1.5rem;
+        --fs-body: 1.125rem;
+     }
+}
+
+/* General Styles */
+
+body {
+    background: var(--clr-light);  /* Used to insert custom property **/
+    color: var(--clr-dark);
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;   /*height between text lines **/
+}
+
+section {
+    padding: 5em 2em; /* 5 top/bot  2 rig/lef */
+}
+
+img {
+    display: block;   /* Display element on new line taking up the whole width **/
+    max-width: 100%;
+}
+
+strong {font-weight: var(--fw-bold)}
+
+:focus {  /* Represent element that has received focuse like tapping tab*/
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    padding: .5em 2.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: var(--fw-bold);
+    transition: transform 200ms ease-in-out;  /* transition with slow start and end */
+}
+
+
+.btn:hover {
+    transform: scale(1.1);  /* Makes button bigger when hovering */
+}
+
+/* Typography **/
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+    margin: 0;   /* Used to create space around elements **/
+}
+
+h1 { font-size: var(--fs-h1)}
+h2 { font-size: var(--fs-h2)}
+h3 { font-size: var(--fs-h3)}
+
+
+.section__title {
+    margin-bottom: .25em;
+}
+
+.section__title--intro {
+    font-weight: var(--fw-reg);
+}    
+
+.section__title--intro strong{
+    display: block;
+}
+
+.section__subtitle {
+    margin: 0;
+    font-size: var(--fs-h3);
+}
+
+.section__subtitle--intro,
+.section__subtitle--about {
+    background: var(--clr-accent);
+    padding: .25em 1em;
+    font-family: var(--ff-secondary);
+    margin-bottom: 1em;
+}
+
+/* Header */
+
+nav {
+    display: none;
+}
+
+
+/* Intro section */
+
+.intro {
+    position: relative;  /* Positioned relative to its normal position */
+}
+
+
+.intro__img {
+    box-shadow: var(--bs);
+}
+
+
+@media (min-width: 600px) {
+    .intro {
+        display: grid;
+        width: min-content;  /* As small as possible */
+        margin: 0 auto; /* right and left margin incleared until centered */
+        grid-column-gap: 1em;
+        grid-template-areas:
+            "img title"
+            "img subtitle";
+        grid-template-columns: min-content max-content;    
+    }
+
+    .intro__img {
+        grid-area: img;
+        min-width: 250px;
+        position: relative;
+        z-index: 2;  /* Stack order of element */
+    }
+
+    .section__subtitle--intro {
+        align-self: start; /* Stop it from stretching downward */
+        grid-column: -1 / 1;  /* Lets it stretch the whole length */
+        grid-row: 2;
+        text-align: right;
+        position: relative;
+        left: -1.5em;
+        width: calc(100% + 1.5em);
+    }
+}
+
+/* My services section */
+
+.my-services {
+    background-color: var(--clr-dark);
+    background-image: url("C:/Users/ychen/OneDrive/Desktop/sample portfolio image/services-bg.jpg");   
+    background-size: cover; /* Resize background image to cover entire container */
+    /* background-blend-mode: multiply; */
+    color: var(--clr-light); 
+    text-align: center;
+}
+
+
+.section__title--services {
+    color: var(--clr-accent);
+    position: relative;
+}
+
+.section__title--services::after {
+    content: '';  /* Insert generated content (line) */
+    display: block;
+    width: 3em;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: var(--clr-light);
+    opacity: 0.5;
+}
+
+.services {
+    margin-bottom: 4em;
+}
+
+.service {
+    max-width: 500px;  /* Prevent text lines to be too long */
+    margin: 0 auto;
+
+}
+
+@media (min-width: 800px) {
+    .services {
+        display: flex; /* Make three columns */
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .service + .service {  /* Target sibling columns */
+        margin-left: 2em;
+
+    }
+}
+
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me__img {
+    box-shadow: var(--bs);
+}
+
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas: 
+            "title img"
+            "subtitle img"
+            "text img";
+        grid-column-gap: 2em;    
+    }
+
+    .section__title--about {
+        grid-column: title;
+    }
+
+    .section__subtitle--about {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        position: relative;
+        left: -1em;
+        width: calc(100% + 2em);
+        padding-left: 1em;
+        padding-right: calc(200px + 4 em);
+    }
+
+    .about-me__img {
+        grid-area: img;
+        position: relative;
+        z-index: 2;
+    }
+
+}
