@@ -17,9 +17,21 @@
     --fw-reg: 300;  /* font weight **/
     --fw-bold: 900;
 
-    --clr-light: #fff;   /* Colour **/
+    /* --clr-light: #FBEEC1;  
+    --clr-dark: #660033;
+    --clr-accent: #659dbd; */
+
+    /* --clr-light: #fff;   
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-accent: #16e0bd; */
+
+    --clr-white: #fff;
+    --clr-light: #181616;   
+    --clr-dark: #16e0bd;
+    --clr-accent: #cc1717;
+    --clr-grey: #4b4b4b;
+
+
 
     --fs-h1: 3rem;  /*Font size **/
     --fs-h2: 2.25rem;
@@ -179,17 +191,17 @@ nav {
 /* My services section */
 
 .my-services {
-    background-color: var(--clr-dark);
+    background-color: var( --clr-grey);
     background-image: url("C:/Users/ychen/OneDrive/Desktop/sample portfolio image/services-bg.jpg");   
     background-size: cover; /* Resize background image to cover entire container */
-    /* background-blend-mode: multiply; */
-    color: var(--clr-light); 
+    background-blend-mode: multiply;
+    color: var(---clr-dark); 
     text-align: center;
 }
 
 
 .section__title--services {
-    color: var(--clr-accent);
+    color: var(---clr-dark);
     position: relative;
 }
 
@@ -270,4 +282,8 @@ nav {
         z-index: 2;
     }
 
+}
+
+.my-work {
+   background-color: var(--clr-dark); 
 }
